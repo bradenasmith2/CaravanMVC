@@ -7,5 +7,6 @@
         public int Age { get; set; }
         public string Destination { get; set; }
         public Wagon Wagon { get; set; }
+        public int WagonId { get; set; }
     }
 }
