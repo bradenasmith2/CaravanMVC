@@ -19,5 +19,13 @@ namespace CaravanMVC.Controllers
             var Wagons = _context.Wagons.Include(e => e.Passengers).ToList();
             return View(Wagons);
         }
+
+        [Route("/wagons/{id:int}")]
+        public IActionResult Details(int id)
+        {
+            var wagon = _context.Wagons.Include(e => e.Passengers).Where(e => e.Id == id).Single();
+
+            return View(wagon);
+        }
     }
 }
