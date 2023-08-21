@@ -1,5 +1,6 @@
 using CaravanMVC.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CaravanMvcContext>(
     options => options.UseNpgsql(builder.Configuration.GetConnectionString("CaravanMvcDb")).UseSnakeCaseNamingConvention()
     );
+
 
 var app = builder.Build();
 
