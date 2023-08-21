@@ -1,0 +1,27 @@
+﻿@model Wagon
+
+<h1>@Model.Name</h1>
+
+<div style="display: flex;">
+    <p>
+        This wagon has @Model.NumWheels wheels and is
+        @if (Model.Covered == true)
+        {
+        <p> covered.</p>
+        }
+        else
+        {
+        <p> not covered.</p>
+        }
+    </p>
+</div>
+
+<h1>Current Passengers</h1>
+<ul>
+@foreach(var e in Model.Passengers)
+{
+    <li>@e.Name (@e.Age)</li>
+}
+</ul>
+
+<p>Add a Passenger to <a href="/wagons/@Model.Id/new">@Model.Name</a></p>
